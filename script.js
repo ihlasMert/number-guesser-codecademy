@@ -4,9 +4,33 @@ let currentRoundNumber = 1;
 
 // Write your code below:
 const generateTarget = () => {
-  let secretNumber = Math.floor(Math.random * 9);
-  return secretNumber
+  return Math.floor(Math.random() * 9);
 };
-const compareGuesses =(userGues, secretGues,secretNumber)=>{
+const compareGuesses = (userGuess, compGuess, target) => {
+  return (
+    getAbsoluteDistance(userGuess, target) <=
+    getAbsoluteDistance(compGuess, target)
+  );
+};
 
+const getAbsoluteDistance = (num1, num2) => {
+  return Math.abs(num1, num2);
+};
+
+const updateScore = (winner) => {
+  if (winner === "human") {
+    humanScore++;
+  } else {
+    computerScore++;
+  }
+};
+
+const checkUserInput =(input)=>{
+if(input < 0 || input >9){
+  alert("Your guess is out of range.")
+}
+}
+
+const advancedRound =()=>{
+  currentRoundNumber ++
 }
